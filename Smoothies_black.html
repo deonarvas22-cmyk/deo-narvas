@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delicious Cup of Strawberry Smoochies</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* 🍓 Background with strawberries */
+    body {
+      background: url("https://images.unsplash.com/photo-1565958011705-44e2113d2b85?auto=format&fit=crop&w=1600&q=80")
+        no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Soft pink overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 192, 203, 0.65);
+      z-index: -1;
+    }
+
+    /* 🍓 Floating strawberries */
+    .strawberry {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Strawberry_icon.svg/512px-Strawberry_icon.svg.png") no-repeat center;
+      background-size: contain;
+      animation: float 20s linear infinite;
+      opacity: 0.9;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 1; }
+      to {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    header {
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #d90429;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #66101f;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero img {
+      width: 320px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(217, 4, 41, 0.3);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(217, 4, 41, 0.5);
+    }
+
+    .product-details {
+      max-width: 650px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(217, 4, 41, 0.15);
+    }
+
+    .product-details h2 {
+      font-size: 2rem;
+      color: #d90429;
+      margin-bottom: 10px;
+    }
+
+    .product-details p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      color: #2b9348;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #ff4b2b;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #ff7e5f;
+      transform: translateY(-3px);
+    }
+
+    section {
+      margin-top: 50px;
+      width: 100%;
+      max-width: 1000px;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #d90429;
+      margin-bottom: 25px;
+      font-size: 2rem;
+    }
+
+    /* ⭐ Customer Reviews */
+    .reviews {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .review {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 280px;
+      box-shadow: 0 5px 15px rgba(217, 4, 41, 0.2);
+    }
+
+    .review p {
+      font-style: italic;
+      color: #333;
+    }
+
+    .review h4 {
+      margin-top: 10px;
+      color: #d90429;
+      font-weight: 600;
+    }
+
+    /* 🚚 Order Form */
+    .order-form {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(217, 4, 41, 0.25);
+      padding: 30px;
+      max-width: 600px;
+      margin-bottom: 80px;
+      text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+
+    .order-form h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #d90429;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: #fff;
+      color: #333;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ff4b2b;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff7e5f;
+    }
+
+    /* ✅ Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 182, 193, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.4);
+    }
+
+    .popup-content h3 {
+      color: #2b9348;
+      margin-bottom: 15px;
+    }
+
+    .popup-content p {
+      color: #333;
+    }
+
+    .close-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #ff4b2b;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 20px;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #66101f;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 10px;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.3rem;
+      }
+      .hero img {
+        width: 220px;
+      }
+      .order-form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Delicious Cup of Strawberry Smoochies</h1>
+    <p>Sweet. Creamy. Irresistibly Strawberry 🍓</p>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1626697556790-4931f76c47aa?auto=format&fit=crop&w=600&q=80" alt="Cup of Strawberry Smoochies" />
+    <div class="product-details">
+      <h2>Classic Strawberry Smoochies Cup</h2>
+      <p>
+        Indulge in the perfect blend of fresh strawberries, creamy yogurt, and a kiss of honey. Every sip is a burst of natural sweetness in a cup — your new favorite fruity escape! 🍓✨
+      </p>
+      <div class="price">₱389.00</div>
+      <a href="#order" class="cta-btn">Order Your Cup Now</a>
+    </div>
+  </section>
+
+  <!-- ⭐ Customer Reviews -->
+  <section>
+    <h2>Customer Love 💖</h2>
+    <div class="reviews">
+      <div class="review">
+        <p>“So refreshing and creamy! The best strawberry drink I’ve ever had.”</p>
+        <h4>- Camille T.</h4>
+      </div>
+      <div class="review">
+        <p>“The perfect mix of sweet and fruity — my go-to drink every morning!”</p>
+        <h4>- Marco D.</h4>
+      </div>
+      <div class="review">
+        <p>“Fast delivery and super delicious! Feels like real strawberries in a cup.”</p>
+        <h4>- Sofia L.</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🚚 Order Form -->
+  <section id="order" class="order-form">
+    <h3>🛒 Place Your Order</h3>
+
+    <form id="smoochieForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Juan Dela Cruz" required />
+      </div>
+
+      <div class="form-group">
+        <label for="flavor">Choose Your Flavor</label>
+        <select id="flavor" required>
+          <option value="">-- Select Flavor --</option>
+          <option value="Classic Strawberry">Classic Strawberry</option>
+          <option value="Berry Kiss">Berry Kiss</option>
+          <option value="Mango Crush">Mango Crush</option>
+          <option value="Choco Strawberry">Choco Strawberry</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" min="1" max="10" value="1" required />
+      </div>
+
+      <div class="form-group">
+        <label for="address">Delivery Address</label>
+        <textarea id="address" rows="3" placeholder="Street, Barangay, City" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="payment">Payment Method</label>
+        <select id="payment" required>
+          <option value="">-- Select Payment Method --</option>
+          <option value="GCash">GCash</option>
+          <option value="PayMaya">PayMaya</option>
+          <option value="Credit Card">Credit/Debit Card</option>
+          <option value="COD">Cash on Delivery</option>
+        </select>
+      </div>
+
+      <button type="submit">Confirm Order</button>
+    </form>
+  </section>
+
+  <!-- ✅ Popup Confirmation -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h3>✅ Order Confirmed!</h3>
+      <p>Thank you for ordering your Strawberry Smoochies 💖<br>Your delicious cup is on its way!</p>
+      <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Strawberry Smoochies | Made with ❤️ and real strawberries.
+  </footer>
+
+  <script>
+    // 🍓 Floating strawberries generator
+    for (let i = 0; i < 10; i++) {
+      const strawberry = document.createElement("div");
+      strawberry.classList.add("strawberry");
+      strawberry.style.left = Math.random() * 100 + "vw";
+      strawberry.style.animationDuration = 15 + Math.random() * 15 + "s";
+      strawberry.style.width = strawberry.style.height = 40 + Math.random() * 40 + "px";
+      document.body.appendChild(strawberry);
+    }
+
+    // ✅ Popup logic
+    const form = document.getElementById("smoochieForm");
+    const popup = document.getElementById("popup");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      popup.style.display = "flex";
+      form.reset();
+    });
+
+    function closePopup() {
+      popup.style.display = "none";
+    }
+  </script>
+</body>
+</html>
