@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Product Life Cycle — DVD Player</title>
+  <style>
+    :root{--bg:#0f1624;--card:#0e2033;--accent:#ff6b6b;--muted:#9fb0c8;--glass:rgba(255,255,255,0.04)}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#e6f0fb;background:linear-gradient(180deg,#071226 0%, #0c2335 100%)}
+    .container{max-width:1000px;margin:40px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;box-shadow:0 8px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    header{display:flex;gap:18px;align-items:center}
+    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ffd26b);display:flex;align-items:center;justify-content:center;font-weight:700;color:#07202a}
+    h1{margin:0;font-size:1.6rem}
+    p.lead{color:var(--muted);margin-top:6px}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px;margin-top:22px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .section{margin-bottom:16px}
+    .section h2{display:flex;align-items:center;gap:10px;margin:0 0 8px 0}
+    .timeline{display:flex;flex-direction:column;gap:10px}
+    .stage{display:flex;gap:12px;align-items:flex-start}
+    .stage .dot{min-width:60px;padding:10px;border-radius:10px;background:var(--glass);text-align:center;font-weight:600}
+    .stage .body{flex:1}
+    .stage .body p{margin:0;color:var(--muted)}
+    .significance{background:linear-gradient(90deg, rgba(255,107,107,0.06), rgba(255,210,107,0.03));padding:12px;border-radius:8px}
+    footer{margin-top:18px;color:var(--muted);font-size:0.9rem;text-align:center}
+    .kbd{background:#071a2a;padding:6px 8px;border-radius:6px;border:1px solid rgba(255,255,255,0.02)}
+    .cta{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;background:var(--accent);color:#07202a;font-weight:700;text-decoration:none}
+    pre{background:#05121a;padding:12px;border-radius:8px;overflow:auto}
+    @media (max-width:880px){.grid{grid-template-columns:1fr;}.logo{width:56px;height:56px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">DVD</div>
+      <div>
+        <h1>Product Life Cycle: <span style="color:var(--accent)">DVD Player</span></h1>
+        <p class="lead">A concise, illustrated explanation of the DVD Player's journey through Introduction → Growth → Maturity → Decline — and why it matters.</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main class="card">
+        <section class="section">
+          <h2>What is the product?</h2>
+          <p class="lead">A <strong>DVD player</strong> is a consumer electronic device that reads digital video discs (DVDs) and outputs audio/video to a television. Launched commercially in the late 1990s, DVDs replaced VHS tapes as the dominant physical home video format.</p>
+        </section>
+
+        <section class="section">
+          <h2>Life cycle stages</h2>
+          <div class="timeline">
+            <div class="stage">
+              <div class="dot">Introduction</div>
+              <div class="body">
+                <p><strong>When:</strong> Late 1990s — early 2000s.</p>
+                <p><strong>Characteristics:</strong> High R&D and adoption costs, limited titles and players, strong differentiation from VHS (better picture, menus, extra features).</p>
+                <p><strong>Marketing focus:</strong> Educate consumers, build industry partnerships, ensure studio support for DVD releases.</p>
+              </div>
+            </div>
+
+            <div class="stage">
+              <div class="dot">Growth</div>
+              <div class="body">
+                <p><strong>When:</strong> Early 2000s — mid 2000s.</p>
+                <p><strong>Characteristics:</strong> Rapid adoption, falling unit costs, more titles available, retailers increasing shelf space. Competitors enter, variety of brands and price points appear.</p>
+                <p><strong>Marketing focus:</strong> Scale production, expand content libraries, emphasize benefits over VHS and early digital alternatives.</p>
+              </div>
+            </div>
+
+            <div class="stage">
+              <div class="dot">Maturity</div>
+              <div class="body">
+                <p><strong>When:</strong> Mid 2000s — early 2010s.</p>
+                <p><strong>Characteristics:</strong> Market saturation, price competition, incremental product improvements (DVD+/-R, multi-region players, combo players with Blu-ray later), focus on accessories and bundled content.</p>
+                <p><strong>Marketing focus:</strong> Differentiate with convenience, lower price, value bundles, and later, transition paths to Blu-ray or digital.</p>
+              </div>
+            </div>
+
+            <div class="stage">
+              <div class="dot">Decline</div>
+              <div class="body">
+                <p><strong>When:</strong> Early 2010s onward.</p>
+                <p><strong>Characteristics:</strong> New formats (Blu-ray), then streaming/digital downloads reduce demand for physical media; sales shrink; retailers reduce shelf space; manufacturers shift to other products.</p>
+                <p><strong>Marketing focus:</strong> Harvest remaining demand, service existing users, or pivot product lines to streaming devices and smart TVs.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Why this case is significant</h2>
+          <div class="significance">
+            <ul>
+              <li><strong>Technology displacement:</strong> Shows how quickly distribution models (physical → digital) can render hardware obsolete.</li>
+              <li><strong>Strategic lessons:</strong> Importance of anticipating platform shifts (content delivery) rather than just improving hardware.</li>
+              <li><strong>Business impact:</strong> Companies that diversified (e.g., making streaming-capable devices) fared better than those reliant solely on DVD hardware sales.</li>
+              <li><strong>Consumer behavior:</strong> Convenience and subscription models changed purchasing patterns—one-time purchases became subscriptions.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Short timeline</h2>
+          <pre>
+1996-1999: Introduction & early adoption
+2000-2006: Rapid growth and mass-market penetration
+2007-2012: Maturity; Blu-ray emerges as premium physical format
+2010s-present: Decline as streaming becomes dominant
+          </pre>
+        </section>
+
+        <section class="section">
+          <h2>What could companies have done differently?</h2>
+          <ol>
+            <li>Invest early in digital distribution partnerships and streaming platforms.</li>
+            <li>Pivot hardware to complementary roles (e.g., streaming set-top boxes, media hubs).</li>
+            <li>Offer services or subscription models tied to content instead of relying on single purchase revenue.</li>
+          </ol>
+        </section>
+
+        <footer>
+          <small>Example product analysis created for learning and demonstration purposes.</small>
+        </footer>
+      </main>
+
+      <aside class="card">
+        <section>
+          <h2>Quick facts</h2>
+          <p class="lead">Product: <strong>DVD Player</strong><br>First mainstream release: <strong>late 1990s</strong><br>Peak retail years: <strong>2000s</strong><br>Current status: <strong>Decline / niche collectors</strong></p>
+        </section>
+
+        <section style="margin-top:12px">
+          <h2>Significance snapshot</h2>
+          <p class="lead">This product lifecycle illustrates the broader theme: <em>hardware tied to a specific content-delivery model is vulnerable to platform shifts.</em></p>
+          <a class="cta" href="#" onclick="alert('If you want, I can convert this page into a GitHub Pages-ready project and show the steps.')">Make GitHub-ready</a>
+        </section>
+
+        <section style="margin-top:12px">
+          <h2>Use this page</h2>
+          <p style="margin:0;">You can copy this HTML into a file named <span class="kbd">index.html</span> and open it locally, or upload it to GitHub (see Upload → Add file → Upload files).</p>
+        </section>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
